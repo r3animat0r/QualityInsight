@@ -1,0 +1,41 @@
+/*  COLORS:
+ Blue   - F5FAFF, CEDFF2, A3B0BF, 8596AA
+ Link   - 3477C0
+ Green  - F5FFFA, CEF2E0, A3BFB1, 85AA98
+ Yellow - FFFEF5, EDF2CE, BFBFA3, AAAA85
+ Earthy - FFFAF5, F2E1CE, BFB2A3, AA9985
+ Grey   - EEEEEE, E2E2E2, A2A9B1, 868F9A */
+
+.App {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+.App-header {
+  font-family: 'Libre Baskerville', serif;
+  padding-top: 40px;
+  /* min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin); */
+  /* color: white; */
+}
+
+.title {
+  font-size: 56px;
+}
+
+.subtitle {
+  font-size: 22px;
+  margin-top: -5px;
+}
+
+.App-link {
+  color: #3477C0;
+  /* font-family:'Roboto', sans-serif; */
+}
+
