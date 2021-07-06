@@ -5,10 +5,16 @@
     padding: 40px 20px;
     align-self: center;
     margin: 0 auto;
+    width: 70%;
+    min-width: 750px;
 }
 
-.searchBar {
+.searchbar {
     width: 100%;
+}
+
+.searchbar .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #3477C0;
 }
 
 .card {
@@ -18,11 +24,57 @@
     width: 100%;
 }
 
+.qi-card {
+    background-color: #F5FFFA !important;
+    border: 1px solid #A3BFB1 !important;
+}
+
+.ores-card {
+    background-color: #F5FAFF !important;
+    border: 1px solid #A3B0BF !important;
+}
+
+.aq-card {
+    background-color: #FFFEF5 !important;
+    border: 1px solid #BFBFA3 !important;
+}
+
 .flex-container {
     display: flex;
     gap: 20px;
 }
 
+.card-content {
+    padding-bottom: 5px !important;
+}
+
+.card-typo {
+    margin-top: -12px !important;
+    margin-bottom: 2px !important;
+    font-weight: bold !important;
+}
+
+.card-divider-green {
+    background-color: #A3BFB1 !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+}
+
+.card-divider-blue {
+    background-color: #A3B0BF !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+}
+
+.card-divider-yellow {
+    background-color: #BFBFA3 !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+}
+
+.content {
+    margin-top: 0px !important;
+}
 
 /* .searchBar:focused {
     background-color: red !important;

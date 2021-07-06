@@ -111,6 +111,7 @@ env.bak/
 venv.bak/
 qualityinsight-frontend/node_modules
 qualityinsight-frontend/dist
+qi.code-workspace
 
 # Spyder project settings
 .spyderproject
