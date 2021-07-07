@@ -1,6 +1,8 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './views/Home';
+import FoundArticles from './views/FoundArticles';
+import FoundRevisions from './views/FoundRevisions';
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
         </div>
       </header>
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={Home} exact />
+        <Route path="/found-articles" component={FoundArticles} exact />
+        <Route path="/found-revisions" component={FoundRevisions} exact />
       </Switch>
     </div>
   );

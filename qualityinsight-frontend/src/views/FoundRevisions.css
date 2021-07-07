@@ -1,0 +1,81 @@
+#content {
+    font-family:'Roboto', sans-serif;
+    padding: 40px 20px;
+    align-self: center;
+    margin: 0 auto;
+    width: 70%;
+    min-width: 750px;
+}
+
+.head {
+    display: flex;
+}
+
+.space-between {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-button {
+    /* text-align: left; */
+    background-color: #AAAA85 !important;
+    color: white !important;
+    font-weight: bold !important;
+    width: 250px;
+    height: 40px;
+}
+
+.whatis {
+    color: #85AA98;
+    font-weight: bold;
+    display: flex;
+    gap: 8px;
+    
+}
+
+.whatis .text {
+    align-self: center;
+}
+
+.whatis .icon {
+    align-self: center;
+}
+
+.search-result {
+    text-align: left;
+    display: flex;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.select-button-rev {
+    background-color: #8596AA !important;
+    color: white !important;
+    font-weight: bold !important;
+    width: 229px;
+    height: 40px;
+}
+
+.tip .MuiTooltip-tooltip {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.54);
+    border: 1px solid #A2A9B1;
+    margin-top: 5px;
+}
+
+.help .MuiTooltip-tooltip {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.54);
+    border: 1px solid #A2A9B1;
+    margin-top: 5px;
+}
+
+#revision {
+    margin-top: -8px;
+}
+
+#revision .MuiTypography-body2 {
+    margin-top: -5px;
+}
