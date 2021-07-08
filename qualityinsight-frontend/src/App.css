@@ -12,9 +12,9 @@
   margin: 0 auto;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 .App-header {
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   padding-top: 40px;
   /* min-height: 100vh;
   display: flex;
@@ -35,7 +35,6 @@
 }
 
 .App-link {
-  color: #3477C0;
+  color: #3477c0;
   /* font-family:'Roboto', sans-serif; */
 }
-

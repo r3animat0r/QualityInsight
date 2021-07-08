@@ -1,83 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 #home {
-    font-family:'Roboto', sans-serif;
-    padding: 40px 20px;
-    align-self: center;
-    margin: 0 auto;
-    width: 70%;
-    min-width: 750px;
+  font-family: "Roboto", sans-serif;
+  padding: 40px 20px;
+  align-self: center;
+  margin: 0 auto;
+  width: 70%;
+  min-width: 750px;
 }
 
 .searchbar {
-    width: 100%;
+  width: 100%;
 }
 
 .searchbar .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #3477C0;
+  border-color: #3477c0;
 }
 
 .card {
-    padding-top: 20px;
-    text-align: left;
-    display: block;
-    width: 100%;
+  padding-top: 20px;
+  text-align: left;
+  display: block;
+  width: 100%;
 }
 
 .qi-card {
-    background-color: #F5FFFA !important;
-    border: 1px solid #A3BFB1 !important;
+  background-color: #f5fffa !important;
+  border: 1px solid #a3bfb1 !important;
 }
 
 .ores-card {
-    background-color: #F5FAFF !important;
-    border: 1px solid #A3B0BF !important;
+  background-color: #f5faff !important;
+  border: 1px solid #a3b0bf !important;
 }
 
 .aq-card {
-    background-color: #FFFEF5 !important;
-    border: 1px solid #BFBFA3 !important;
+  background-color: #fffef5 !important;
+  border: 1px solid #bfbfa3 !important;
 }
 
 .flex-container {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .card-content {
-    padding-bottom: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 .card-typo {
-    margin-top: -12px !important;
-    margin-bottom: 2px !important;
-    font-weight: bold !important;
+  margin-top: -12px !important;
+  margin-bottom: 2px !important;
+  font-weight: bold !important;
 }
 
 .card-divider-green {
-    background-color: #A3BFB1 !important;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
+  background-color: #a3bfb1 !important;
+  margin-left: -16px !important;
+  margin-right: -16px !important;
 }
 
 .card-divider-blue {
-    background-color: #A3B0BF !important;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
+  background-color: #a3b0bf !important;
+  margin-left: -16px !important;
+  margin-right: -16px !important;
 }
 
 .card-divider-yellow {
-    background-color: #BFBFA3 !important;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
+  background-color: #bfbfa3 !important;
+  margin-left: -16px !important;
+  margin-right: -16px !important;
 }
 
 .content {
-    margin-top: 0px !important;
+  margin-top: 0px !important;
 }
 
 /* .searchBar:focused {
     background-color: red !important;
 } */
-
-

@@ -1,134 +1,134 @@
 #content-exp {
-    font-family:'Roboto', sans-serif;
-    padding: 40px 20px;
-    align-self: center;
-    margin: 0 auto;
-    width: 80%;
-    min-width: 1200px;
+  font-family: "Roboto", sans-serif;
+  padding: 40px 20px;
+  align-self: center;
+  margin: 0 auto;
+  width: 80%;
+  min-width: 1200px;
 }
 
 .head {
-    display: flex;
+  display: flex;
 }
 
 .head-flex {
-    display: flex !important;
-    justify-content: space-between;
+  display: flex !important;
+  justify-content: space-between;
 }
 
 .space-between {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .back-button {
-    /* text-align: left; */
-    background-color: #AAAA85 !important;
-    color: white !important;
-    font-weight: bold !important;
-    width: 250px;
-    height: 40px;
+  /* text-align: left; */
+  background-color: #aaaa85 !important;
+  color: white !important;
+  font-weight: bold !important;
+  width: 250px;
+  height: 40px;
 }
 
 .flex-container {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .flex-container-vert {
-    display: flex;
-    flex-direction: column;
-    /* gap: 5px; */
-    flex: 50%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  flex: 50%;
 }
 
 .card {
-    padding-top: 20px;
-    text-align: left;
-    display: block;
-    width: 100%;
+  padding-top: 20px;
+  text-align: left;
+  display: block;
+  width: 100%;
 }
 
 #visual {
-    flex: 50%;
+  flex: 50%;
 }
 
 .visual-card {
-    background-color: #FFFEF5 !important;
-    border: 1px solid #BFBFA3 !important;
+  background-color: #fffef5 !important;
+  border: 1px solid #bfbfa3 !important;
 }
 
 .expl-card {
-    background-color: #F5FFFA !important;
-    border: 1px solid #A3BFB1 !important;
+  background-color: #f5fffa !important;
+  border: 1px solid #a3bfb1 !important;
 }
 
 .feature-card {
-    background-color: #F5FAFF !important;
-    border: 1px solid #A3B0BF !important;
+  background-color: #f5faff !important;
+  border: 1px solid #a3b0bf !important;
 }
 
 .whatis-vis {
-    color: #BFBFA3;
-    font-weight: bold;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-top: -14px;
+  color: #bfbfa3;
+  font-weight: bold;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: -14px;
 }
 
 .whatis-fea {
-    color: #A3B0BF;
-    font-weight: bold;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-top: -14px;
+  color: #a3b0bf;
+  font-weight: bold;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: -14px;
 }
 
 .select-button-rev {
-    background-color: #8596AA !important;
-    color: white !important;
-    font-weight: bold !important;
-    width: 229px;
-    height: 40px;
+  background-color: #8596aa !important;
+  color: white !important;
+  font-weight: bold !important;
+  width: 229px;
+  height: 40px;
 }
 
 .tip .MuiTooltip-tooltip {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.54);
-    border: 1px solid #A2A9B1;
-    margin-top: 5px;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.54);
+  border: 1px solid #a2a9b1;
+  margin-top: 5px;
 }
 
 .help-yellow .MuiTooltip-tooltip {
-    background-color: #FFFEF5;
-    color: black;
-    border: 1px solid #BFBFA3;
-    margin-top: 5px;
-    box-shadow: black;
+  background-color: #fffef5;
+  color: black;
+  border: 1px solid #bfbfa3;
+  margin-top: 5px;
+  box-shadow: black;
 }
 
 .help-blue .MuiTooltip-tooltip {
-    background-color: #F5FAFF;
-    color: black;
-    border: 1px solid #A3B0BF;
-    margin-top: 5px;
-    box-shadow: black;
+  background-color: #f5faff;
+  color: black;
+  border: 1px solid #a3b0bf;
+  margin-top: 5px;
+  box-shadow: black;
 }
 
 .help .MuiTooltip-tooltip .MuiTypography-body2 {
-    color: rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .help-icon-yellow {
-    color: #BFBFA3;
-    font-size: 30px !important;
+  color: #bfbfa3;
+  font-size: 30px !important;
 }
 
 .help-icon-blue {
-    color: #A3B0BF;
-    font-size: 30px !important;
+  color: #a3b0bf;
+  font-size: 30px !important;
 }
