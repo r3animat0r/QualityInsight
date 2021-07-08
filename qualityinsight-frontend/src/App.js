@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './views/Home';
 import FoundArticles from './views/FoundArticles';
 import FoundRevisions from './views/FoundRevisions';
+import Explanation from './views/Explanation';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/found-articles" component={FoundArticles} exact />
         <Route path="/found-revisions" component={FoundRevisions} exact />
+        <Route path="/explanation" component={Explanation} exact />
       </Switch>
     </div>
   );

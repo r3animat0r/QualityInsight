@@ -66,10 +66,20 @@
 }
 
 .help .MuiTooltip-tooltip {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.54);
-    border: 1px solid #A2A9B1;
+    background-color: #F5FFFA;
+    color: black;
+    border: 1px solid #A3BFB1;
     margin-top: 5px;
+    box-shadow: black;
+}
+
+.help .MuiTooltip-tooltip .MuiTypography-body2 {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.help-icon {
+    color: #85AA98;
+    font-size: 30px !important;
 }
 
 #revision {
