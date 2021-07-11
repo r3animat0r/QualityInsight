@@ -7,13 +7,19 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 
+let results = [
+  { articleName: "Free Uni", articleURL: "en.wikipedia.com" },
+  { articleName: "Free Uni 2", articleURL: "en.wikipedia.com" },
+];
+
 export default function FoundArticles() {
   return (
     <div id="search">
       <Textfield
         selected
         classes={{ root: "searchbar", selected: "selected" }}
-        value="Free University"
+        placeholder="Search for an article on en.wikipedia.org"
+        defaultValue="Free University"
         variant="outlined"
         size="small"
         InputProps={{
@@ -26,8 +32,7 @@ export default function FoundArticles() {
           ),
         }}
       />
-      <SearchResult />
-      <SearchResult />
+      {results.map(SearchResult)}
     </div>
   );
 }

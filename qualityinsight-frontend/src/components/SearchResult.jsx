@@ -1,3 +1,4 @@
+// @ts-check
 import React from "react";
 
 import Tooltip from "@material-ui/core/Tooltip";
@@ -6,7 +7,14 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 
-export default function SearchResult() {
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.articleName
+ * @param {string} props.articleURL
+ * @returns
+ */
+export default function SearchResult(props) {
   return (
     <div className="search-result">
       <Tooltip
@@ -19,13 +27,13 @@ export default function SearchResult() {
       </Tooltip>
 
       <div id="article">
-        <Typography variant="h6">Free University</Typography>
+        <Typography variant="h6">{props.articleName}</Typography>
         <Typography variant="body2">
-          https://en.wikipedia.org/wiki/Free_University
+          {props.articleURL}
           <IconButton
             edge="start"
             size="small"
-            href="https://en.wikipedia.org/wiki/Free_University"
+            href={props.articleURL}
             target="_blank"
           >
             <OpenInNewIcon />

@@ -32,6 +32,17 @@
   height: 40px;
 }
 
+.revision-info {
+  padding-left: 10px;
+  margin-top: -5px;
+  text-align: left;
+}
+
+.revision-title {
+  margin-top: -7px !important;
+  font-weight: bold !important;
+}
+
 .flex-container {
   display: flex;
   gap: 20px;
@@ -131,4 +142,56 @@
 .help-icon-blue {
   color: #a3b0bf;
   font-size: 30px !important;
+}
+
+.prediction-content {
+  padding-top: 5px;
+}
+
+/* .full-tab-style {
+  max-width: 500px;
+} */
+
+.full-tab {
+  background-color: #fffef5 !important;
+  width: 100%;
+  border-color: #edf2ce !important;
+  border-width: 0px 0px 2px 0px !important;
+  margin-left: -15px;
+  width: 106%;
+}
+
+.tab-style {
+  min-width: 80px !important;
+}
+
+.full-tab-style .MuiTabs-indicator {
+  background-color: #bfbfa3 !important;
+}
+
+.prediction-graphs {
+  text-align: center;
+}
+
+.list-style {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.feature-selection {
+  margin-bottom: 0 !important;
+}
+
+.feature-selection
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #3477c0 !important;
+}
+
+.feature-selection .MuiFormLabel-root.Mui-focused {
+  color: #3477c0;
+}
+
+.feature-menu {
+  background-color: white !important;
 }

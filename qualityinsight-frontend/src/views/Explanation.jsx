@@ -12,17 +12,26 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 
+import Prediction from "../components/Prediction";
+import PredictionExplanation from "../components/PredictionExplanation";
+import FeatureExplanation from "../components/FeatureExplanation";
+
 export default function FoundArticles() {
   const [predOpen, setPredOpen] = React.useState(false);
   const [feaOpen, setFeaOpen] = React.useState(false);
 
   return (
     <div id="content-exp">
-      <div className="head space-between">
-        <div>
-          <Button classes={{ root: "back-button" }} variant="contained">
-            Back to revision selection
-          </Button>
+      <div className="head">
+        <Button classes={{ root: "back-button" }} variant="contained">
+          Back to revision selection
+        </Button>
+        <div className="revision-info">
+          <Typography variant="overline">Article Quality Prediction</Typography>
+          <Typography classes={{ root: "revision-title" }} variant="subtitle1">
+            You are currently viewing the prediction for the article Free
+            University of Berlin with the Revision ID 1027689158
+          </Typography>
         </div>
       </div>
       <div className="flex-container">
@@ -42,13 +51,14 @@ export default function FoundArticles() {
                         title={
                           <React.Fragment>
                             <Typography variant="h6" align="left">
-                              Revisions
+                              Predictions
                             </Typography>
                             <Typography variant="body2" align="left">
-                              Revisions are article updates. <br></br>
-                              They are sorted by time with the most current
-                              revision on top. Only the ten latest revisions are
-                              possible to choose.
+                              The prediciton is made with the ORES article
+                              quality model. <br></br>
+                              The displayed probabilities for the shown grades
+                              are calculated using the feature values. There is
+                              a graph for every grade.
                             </Typography>
                           </React.Fragment>
                         }
@@ -77,7 +87,7 @@ export default function FoundArticles() {
                 </div>
               </div>
               <Divider classes={{ root: "card-divider-yellow" }} />
-              Hi
+              <Prediction />
             </CardContent>
           </Card>
         </div>
@@ -89,7 +99,7 @@ export default function FoundArticles() {
                   Explanation of the prediction
                 </Typography>
                 <Divider classes={{ root: "card-divider-green" }} />
-                Hi
+                <PredictionExplanation />
               </CardContent>
             </Card>
           </div>
@@ -109,13 +119,15 @@ export default function FoundArticles() {
                           title={
                             <React.Fragment>
                               <Typography variant="h6" align="left">
-                                Revisions
+                                Features
                               </Typography>
                               <Typography variant="body2" align="left">
-                                Revisions are article updates. <br></br>
-                                They are sorted by time with the most current
-                                revision on top. Only the ten latest revisions
-                                are possible to choose.
+                                They are used to calculate the prediction.{" "}
+                                <br></br>
+                                Each feature represents a characteristics of the
+                                article. There are 25 features in total for the
+                                articlequality model used in the english
+                                Wikipedia.
                               </Typography>
                             </React.Fragment>
                           }
@@ -144,7 +156,7 @@ export default function FoundArticles() {
                   </div>
                 </div>
                 <Divider classes={{ root: "card-divider-blue" }} />
-                Hi
+                <FeatureExplanation />
               </CardContent>
             </Card>
           </div>
