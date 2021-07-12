@@ -79,3 +79,33 @@
 /* .searchBar:focused {
     background-color: red !important;
 } */
+
+.search-result {
+  text-align: left;
+  display: flex;
+  gap: 20px;
+  padding-top: 30px;
+}
+
+#article {
+  margin-top: -5px;
+}
+
+#article .MuiTypography-body2 {
+  margin-top: -8px;
+}
+
+.select-button {
+  background-color: #8596aa !important;
+  color: white !important;
+  font-weight: bold !important;
+  width: 110px;
+  height: 40px;
+}
+
+.tip .MuiTooltip-tooltip {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.54);
+  border: 1px solid #a2a9b1;
+  margin-top: 5px;
+}

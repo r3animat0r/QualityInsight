@@ -1,5 +1,6 @@
 // @ts-check
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
@@ -21,11 +22,12 @@ export default function SearchResult(props) {
         classes={{ popper: "tip" }}
         title="Click here to select this article"
       >
-        <Button classes={{ root: "select-button" }} variant="contained">
-          Select
-        </Button>
+        <Link to="/found-revisions">
+          <Button classes={{ root: "select-button" }} variant="contained">
+            Select
+          </Button>
+        </Link>
       </Tooltip>
-
       <div id="article">
         <Typography variant="h6">{props.articleName}</Typography>
         <Typography variant="body2">

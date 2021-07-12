@@ -1,5 +1,7 @@
 import "./FoundRevisions.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, useLocation } from "react-router-dom";
 
 import ArticleRevision from "../components/ArticleRevision";
 import Button from "@material-ui/core/Button";
@@ -9,7 +11,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Typography from "@material-ui/core/Typography";
 
-let results = [
+/* let results = [
   {
     ID: "1027689158",
     user: "username",
@@ -23,9 +25,25 @@ let results = [
     timestamp: "09 June 2021, 12:01:21",
     comment: "Edit comment here.",
   },
-];
+]; */
 
 export default function FoundArticles() {
+  const [results, setResults] = useState([]);
+  let history = useHistory();
+  let location = useLocation();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/found-revisions")
+      .then((response) => {
+        console.log("SUCCESS", response);
+        setResults(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const [open, setOpen] = React.useState(false);
 
   const handleTooltipClose = () => {
@@ -40,7 +58,14 @@ export default function FoundArticles() {
     <div id="content">
       <div className="head space-between">
         <div>
-          <Button classes={{ root: "back-button" }} variant="contained">
+          <Button
+            onClick={() => {
+              /* history.goBack(); */
+              console.log(location.state);
+            }}
+            classes={{ root: "back-button" }}
+            variant="contained"
+          >
             Back to article selection
           </Button>
         </div>

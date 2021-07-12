@@ -1,40 +1,51 @@
 import "./FoundArticles.css";
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, useLocation } from "react-router-dom";
 
-import SearchResult from "../components/SearchResult";
+import SearchResult from "../../components/SearchResult";
 import Textfield from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 
-let results = [
-  { articleName: "Free Uni", articleURL: "en.wikipedia.com" },
-  { articleName: "Free Uni 2", articleURL: "en.wikipedia.com" },
-];
-
 export default function FoundArticles() {
-  let searchValue;
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/")
+      .then((response) => {
+        console.log("SUCCESS", response);
+        setResults(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   let history = useHistory();
+  let searchValue = new URLSearchParams(useLocation().search).get("search");
 
   return (
     <div id="search">
       <form
-        onSubmit={() =>
+        onSubmit={(ev) => {
+          ev.preventDefault();
           history.push({
             pathname: "/found-articles",
             search: "?search=" + searchValue,
             state: {
               update: true,
             },
-          })
-        }
+          });
+        }}
       >
         <Textfield
           selected
           classes={{ root: "searchbar" }}
           placeholder="Search for an article on en.wikipedia.org"
-          defaultValue="Free University"
+          defaultValue={searchValue}
           variant="outlined"
           size="small"
           onInput={(ev) => {
@@ -44,18 +55,7 @@ export default function FoundArticles() {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton
-                  onClick={() => {
-                    history.push({
-                      pathname: "/found-articles",
-                      search: "?search=" + searchValue,
-                      state: {
-                        update: true,
-                      },
-                    });
-                  }}
-                  edge="end"
-                >
+                <IconButton type="submit" edge="end">
                   <SearchIcon />
                 </IconButton>
               </InputAdornment>
