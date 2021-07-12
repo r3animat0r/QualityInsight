@@ -1,12 +1,21 @@
+// @ts-check
 import React from "react";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 
-export default function ArticleRevision() {
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.ID
+ * @param {string} props.user
+ * @param {string} props.timestamp
+ * @param {string} props.comment
+ * @returns
+ */
+
+export default function ArticleRevision(props) {
   return (
     <div className="search-result">
       <Tooltip
@@ -18,14 +27,11 @@ export default function ArticleRevision() {
         </Button>
       </Tooltip>
       <div id="revision">
-        <Typography variant="h6">Revision ID: 1027689158</Typography>
+        <Typography variant="h6">Revision ID: {props.ID}</Typography>
         <Typography variant="body2" color="textSecondary">
-          User: username <br />
-          Timestamp: 09 June 2021, 12:01:21 <br />
-          Comment: Edit comment here, Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum.
+          User: {props.user} <br />
+          Timestamp: {props.timestamp} <br />
+          Comment: {props.comment}
         </Typography>
       </div>
     </div>

@@ -53,7 +53,8 @@
   background-color: #8596aa !important;
   color: white !important;
   font-weight: bold !important;
-  width: 229px;
+  width: 100px !important;
+  min-width: 100px !important;
   height: 40px;
 }
 

@@ -9,6 +9,22 @@ import Tooltip from "@material-ui/core/Tooltip";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Typography from "@material-ui/core/Typography";
 
+let results = [
+  {
+    ID: "1027689158",
+    user: "username",
+    timestamp: "09 June 2021, 12:01:21",
+    comment:
+      "Edit comment here, Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+  },
+  {
+    ID: "1027689158",
+    user: "username",
+    timestamp: "09 June 2021, 12:01:21",
+    comment: "Edit comment here.",
+  },
+];
+
 export default function FoundArticles() {
   const [open, setOpen] = React.useState(false);
 
@@ -64,8 +80,7 @@ export default function FoundArticles() {
           </ClickAwayListener>
         </div>
       </div>
-      <ArticleRevision />
-      <ArticleRevision />
+      {results.map(ArticleRevision)}
     </div>
   );
 }
