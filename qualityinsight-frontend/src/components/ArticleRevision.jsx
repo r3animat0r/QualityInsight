@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
  *
  * @param {Object} props
  * @param {string} props.key
- * @param {string} props.ID
+ * @param {string} props.revid
  * @param {string} props.user
  * @param {string} props.timestamp
  * @param {string} props.comment
