@@ -1,0 +1,197 @@
+#content-exp {
+  font-family: "Roboto", sans-serif;
+  padding: 40px 20px;
+  align-self: center;
+  margin: 0 auto;
+  width: 80%;
+  min-width: 1200px;
+}
+
+.head {
+  display: flex;
+}
+
+.head-flex {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.space-between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button {
+  /* text-align: left; */
+  background-color: #aaaa85 !important;
+  color: white !important;
+  font-weight: bold !important;
+  width: 250px;
+  height: 40px;
+}
+
+.revision-info {
+  padding-left: 10px;
+  margin-top: -5px;
+  text-align: left;
+}
+
+.revision-title {
+  margin-top: -7px !important;
+  font-weight: bold !important;
+}
+
+.flex-container {
+  display: flex;
+  gap: 20px;
+}
+
+.flex-container-vert {
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  flex: 50%;
+}
+
+.card {
+  padding-top: 20px;
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+
+#visual {
+  flex: 50%;
+}
+
+.visual-card {
+  background-color: #fffef5 !important;
+  border: 1px solid #bfbfa3 !important;
+}
+
+.expl-card {
+  background-color: #f5fffa !important;
+  border: 1px solid #a3bfb1 !important;
+}
+
+.feature-card {
+  background-color: #f5faff !important;
+  border: 1px solid #a3b0bf !important;
+}
+
+.whatis-vis {
+  color: #bfbfa3;
+  font-weight: bold;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: -14px;
+}
+
+.whatis-fea {
+  color: #a3b0bf;
+  font-weight: bold;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: -14px;
+}
+
+.select-button-rev {
+  background-color: #8596aa !important;
+  color: white !important;
+  font-weight: bold !important;
+  width: 229px;
+  height: 40px;
+}
+
+.tip .MuiTooltip-tooltip {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.54);
+  border: 1px solid #a2a9b1;
+  margin-top: 5px;
+}
+
+.help-yellow .MuiTooltip-tooltip {
+  background-color: #fffef5;
+  color: black;
+  border: 1px solid #bfbfa3;
+  margin-top: 5px;
+  box-shadow: black;
+}
+
+.help-blue .MuiTooltip-tooltip {
+  background-color: #f5faff;
+  color: black;
+  border: 1px solid #a3b0bf;
+  margin-top: 5px;
+  box-shadow: black;
+}
+
+.help .MuiTooltip-tooltip .MuiTypography-body2 {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.help-icon-yellow {
+  color: #bfbfa3;
+  font-size: 30px !important;
+}
+
+.help-icon-blue {
+  color: #a3b0bf;
+  font-size: 30px !important;
+}
+
+.prediction-content {
+  padding-top: 5px;
+}
+
+/* .full-tab-style {
+  max-width: 500px;
+} */
+
+.full-tab {
+  background-color: #fffef5 !important;
+  width: 100%;
+  border-color: #edf2ce !important;
+  border-width: 0px 0px 2px 0px !important;
+  margin-left: -15px;
+  width: 106%;
+}
+
+.tab-style {
+  min-width: 80px !important;
+}
+
+.full-tab-style .MuiTabs-indicator {
+  background-color: #bfbfa3 !important;
+}
+
+.prediction-graphs {
+  text-align: center;
+}
+
+.list-style {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.feature-selection {
+  margin-bottom: 0 !important;
+}
+
+.feature-selection
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #3477c0 !important;
+}
+
+.feature-selection .MuiFormLabel-root.Mui-focused {
+  color: #3477c0;
+}
+
+.feature-menu {
+  background-color: white !important;
+}
