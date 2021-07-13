@@ -13,14 +13,12 @@ api = Api(app)
 @app.route("/", methods = ['POST','GET'])
 def home():
     searchTerm = request.args.get('search')
-    print(searchTerm)
     searchRes = searchArticle(searchTerm)
     return flask.jsonify(searchRes)
 
 @app.route("/found-revisions", methods = ['POST','GET'])
 def foundRevisions():
     article = request.args.get('article')
-    print(article)
     searchRes = getArticleVersions(article)
     return flask.jsonify(searchRes)
 

@@ -37,12 +37,12 @@ export default function FoundArticles() {
     axios
       .get("http://localhost:5000/found-revisions?article=" + articleName)
       .then((response) => {
-        console.log("SUCCESS", response);
         setResults(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [open, setOpen] = React.useState(false);

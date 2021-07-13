@@ -14,7 +14,11 @@ export default function Information() {
             Quality Insight
           </Typography>
           <Divider classes={{ root: "card-divider-green" }} />
-          <Typography variant="body1" classes={{ body1: "content" }}>
+          <Typography
+            component="span"
+            variant="body1"
+            classes={{ body1: "content" }}
+          >
             <p>
               Articles on Wikipedia are rated and receive a grade (Stub, Start,
               C, B, GA, FA). This tool will explain grading of articles and on
@@ -37,7 +41,11 @@ export default function Information() {
                 ORES
               </Typography>
               <Divider classes={{ root: "card-divider-blue" }} />
-              <Typography variant="body1" classes={{ body1: "content" }}>
+              <Typography
+                component="span"
+                variant="body1"
+                classes={{ body1: "content" }}
+              >
                 <p>
                   ORES is a Machine Learning web service created by the
                   Wikimedia Foundation’s Machine Learning team. It offers a
@@ -61,7 +69,11 @@ export default function Information() {
                 The articlequality model
               </Typography>
               <Divider classes={{ root: "card-divider-yellow" }} />
-              <Typography variant="body1" classes={{ body1: "content" }}>
+              <Typography
+                component="span"
+                variant="body1"
+                classes={{ body1: "content" }}
+              >
                 <p>
                   The articlequality model is one of ORES machine learning
                   models. It assesses existing articles automatically and

@@ -30,7 +30,11 @@ export default function PredictionExplanation() {
           <MenuItem value={8}>Feature 9</MenuItem>
         </Select>
       </FormControl>
-      <Typography variant="body1" classes={{ body1: "content" }}>
+      <Typography
+        component="span"
+        variant="body1"
+        classes={{ body1: "content" }}
+      >
         <p>
           <b>Full feature name: wikitext.revision.headings_by_level(2)</b>
         </p>
