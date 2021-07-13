@@ -31,10 +31,11 @@ export default function FoundArticles() {
   const [results, setResults] = useState([]);
   let history = useHistory();
   let location = useLocation();
+  let articleName = new URLSearchParams(location.search).get("article");
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/found-revisions")
+      .get("http://localhost:5000/found-revisions?article=" + articleName)
       .then((response) => {
         console.log("SUCCESS", response);
         setResults(response.data);
@@ -60,8 +61,7 @@ export default function FoundArticles() {
         <div>
           <Button
             onClick={() => {
-              /* history.goBack(); */
-              console.log(location.state);
+              history.goBack();
             }}
             classes={{ root: "back-button" }}
             variant="contained"

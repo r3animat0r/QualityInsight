@@ -27,7 +27,7 @@ export default function ArticleRevision(props) {
         </Button>
       </Tooltip>
       <div id="revision">
-        <Typography variant="h6">Revision ID: {props.ID}</Typography>
+        <Typography variant="h6">Revision ID: {props.revid}</Typography>
         <Typography variant="body2" color="textSecondary">
           User: {props.user} <br />
           Timestamp: {props.timestamp} <br />

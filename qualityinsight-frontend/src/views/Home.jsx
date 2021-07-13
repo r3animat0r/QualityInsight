@@ -42,7 +42,7 @@ export default function Home() {
     }
 
     axios
-      .get("http://localhost:5000/")
+      .get("http://localhost:5000/?search=" + search)
       .then((response) => {
         console.log("SUCCESS", response);
         setResults(response.data);
