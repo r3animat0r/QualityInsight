@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 /**
  *
  * @param {Object} props
+ * @param {string} props.key
  * @param {string} props.ID
  * @param {string} props.user
  * @param {string} props.timestamp
@@ -17,7 +18,7 @@ import Typography from "@material-ui/core/Typography";
 
 export default function ArticleRevision(props) {
   return (
-    <div className="search-result">
+    <div className="search-result" key={props.key}>
       <Tooltip
         classes={{ popper: "tip" }}
         title="Click here to select this revision"

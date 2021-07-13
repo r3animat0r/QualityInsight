@@ -16,7 +16,6 @@ export default function FoundArticles() {
     axios
       .get("http://localhost:5000/")
       .then((response) => {
-        console.log("SUCCESS", response);
         setResults(response.data);
       })
       .catch((error) => {
@@ -50,7 +49,6 @@ export default function FoundArticles() {
           size="small"
           onInput={(ev) => {
             searchValue = ev.target.value;
-            console.log(searchValue);
           }}
           InputProps={{
             endAdornment: (

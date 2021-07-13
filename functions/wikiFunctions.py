@@ -42,7 +42,7 @@ def searchArticle(text):
     # results in a list of dicts
     articles = []
     for i in range(0, len(data[1])):
-        articles.append({"articleName": data[1][i], "articleURL": data[3][i]})
+        articles.append({"key": "a" + str(i), "articleName": data[1][i], "articleURL": data[3][i]})
     
     return articles
 
@@ -71,5 +71,6 @@ def getArticleVersions(article):
     for i in range(0, len(revisions)):
         timestamp = datetime.strptime(revisions[i]['timestamp'], '%Y-%m-%dT%H:%M:%SZ')
         revisions[i]['timestamp'] = timestamp.strftime("%d %B %Y, %H:%M:%S")
+        revisions[i]['key'] = "r" + str(i)
 
     return revisions

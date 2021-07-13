@@ -12,6 +12,23 @@ import SearchIcon from "@material-ui/icons/Search";
 import SearchResult from "../components/SearchResult";
 import Information from "../components/Information";
 
+// submit search function
+let startSearch = (search, setResults) => {
+  if (search.length === 0) {
+    setResults((results) => []);
+    return;
+  }
+
+  axios
+    .get("http://localhost:5000/?search=" + search)
+    .then((response) => {
+      setResults((results) => response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 export default function Home() {
   let initValue = new URLSearchParams(useLocation().search).get("search");
   let history = useHistory();
@@ -20,7 +37,8 @@ export default function Home() {
 
   // search term via query
   useEffect(() => {
-    startSearch();
+    startSearch(search, setResults);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // (update on) update search term
@@ -32,32 +50,14 @@ export default function Home() {
         search,
       },
     });
-  }, [search]);
-
-  // submit search
-  let startSearch = () => {
-    if (search.length == 0) {
-      setResults([]);
-      return;
-    }
-
-    axios
-      .get("http://localhost:5000/?search=" + search)
-      .then((response) => {
-        console.log("SUCCESS", response);
-        setResults(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  }, [search, history]);
 
   return (
     <div id="home">
       <form
         onSubmit={(ev) => {
           ev.preventDefault();
-          startSearch();
+          startSearch(search, setResults);
         }}
       >
         <Textfield
@@ -69,7 +69,6 @@ export default function Home() {
           size="small"
           onInput={(ev) => {
             setSearch(ev.target.value);
-            console.log(ev.target.value);
           }}
           InputProps={{
             endAdornment: (

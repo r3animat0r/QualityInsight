@@ -57,6 +57,7 @@ export default function Prediction() {
                 <a
                   href="https://en.wikipedia.org/wiki/Wikipedia:Content_assessment"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Content assessment
                 </a>

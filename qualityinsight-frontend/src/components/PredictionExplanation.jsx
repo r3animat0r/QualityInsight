@@ -5,7 +5,11 @@ import Typography from "@material-ui/core/Typography";
 export default function PredictionExplanation() {
   return (
     <div>
-      <Typography variant="body1" classes={{ body1: "content" }}>
+      <Typography
+        component="span"
+        variant="body1"
+        classes={{ body1: "content" }}
+      >
         <p>
           The prediction for the revision with the ID 1027689158 suggests that
           this article gets the grading B with the probability of 38%. This

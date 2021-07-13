@@ -11,13 +11,14 @@ import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 /**
  *
  * @param {Object} props
+ * @param {string} props.key
  * @param {string} props.articleName
  * @param {string} props.articleURL
  * @returns
  */
 export default function SearchResult(props) {
   return (
-    <div className="search-result">
+    <div className="search-result" key={props.key}>
       <Tooltip
         classes={{ popper: "tip" }}
         title="Click here to select this article"
