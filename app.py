@@ -5,6 +5,7 @@ from flask_cors import CORS #comment this on deployment
 from api.ApiHandler import ApiHandler
 
 from functions.wikiFunctions import *
+from functions.visualization import *
 
 app = Flask(__name__, static_url_path='', static_folder='qualityinsight-frontend/build')
 CORS(app) #comment this on deployment
@@ -14,6 +15,7 @@ api = Api(app)
 def home():
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
+
     return flask.jsonify(searchRes)
 
 @app.route("/found-revisions", methods = ['POST','GET'])
@@ -27,3 +29,6 @@ def explanation():
     return
 
 api.add_resource(ApiHandler, '/')
+
+if __name__ == '__main__':
+    app.run(debug = False)
