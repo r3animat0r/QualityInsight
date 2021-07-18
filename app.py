@@ -26,7 +26,13 @@ def foundRevisions():
 
 @app.route("/explanation", methods = ['POST', 'GET'])
 def explanation():
-    return
+    revid = request.args.get('revid')
+    prediction, feature_values = getVersionScore(int(revid))
+    print(prediction)
+    fig, tables = getExplanation(prediction, feature_values)
+    #print(fig)
+    #print(tables)
+    return {"prediction": prediction, "fig": fig, "tables": tables}
 
 api.add_resource(ApiHandler, '/')
 

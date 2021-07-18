@@ -23,7 +23,10 @@ export default function SearchResult(props) {
         classes={{ popper: "tip" }}
         title="Click here to select this article"
       >
-        <Link to={"/found-revisions?article=" + props.articleName}>
+        <Link
+          className="button-link"
+          to={"/found-revisions?article=" + props.articleName}
+        >
           <Button classes={{ root: "select-button" }} variant="contained">
             Select
           </Button>

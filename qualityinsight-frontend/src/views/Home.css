@@ -104,9 +104,13 @@
   height: 40px;
 }
 
+.button-link {
+  height: 40px;
+}
+
 .tip .MuiTooltip-tooltip {
   background-color: white;
   color: rgba(0, 0, 0, 0.54);
   border: 1px solid #a2a9b1;
-  margin-top: 5px;
+  margin-top: 0px;
 }

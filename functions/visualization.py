@@ -2,7 +2,12 @@
 # https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_context_revid_model
 # partially taken from https://github.com/adamwight/ores-lime/blob/master/Explain%20edit%20quality.ipynb
 import os.path
+import base64
+from io import BytesIO
 from matplotlib.pyplot import show
+from matplotlib.pyplot import figure
+import matplotlib.pyplot as plt, mpld3
+
 import pandas as pd
 import numpy as np
 import json
@@ -35,10 +40,13 @@ data = pd.read_csv(os.path.realpath("functions/articlequality/trainingdata/train
 train = data.to_numpy()
 
 def getVersionScore(revID):
+    #print(revID)
     feature_values = np.array(list(extractor.extract(revID, sm.features)))
+    #print(feature_values)
     return sm.score(feature_values), feature_values
 
-def getExplaination(prediction, feature_values):
+def getExplanation(prediction, feature_values):
+    print("Explanation start!")
     explainer = LimeTabularExplainer(
         train,
         mode="classification",
@@ -56,16 +64,34 @@ def getExplaination(prediction, feature_values):
         np.array(feature_values),
         score,
         num_features=40,
-        top_labels=6
+        top_labels=6,
+        num_samples=500
     )
     print("LIME is done!")
 
+    # get graphs and info for table for every label
+    figures = []
+    tables = []
+    for i in range(0,6):
+        # graph
+        fig = exp.as_pyplot_figure(label=i)
+        fig.set_size_inches(20, 10)
+        plt.tight_layout()
+        #fig.savefig('lime' + str(i) + '.png', transparent=False, dpi=100)
+        
+        tmpfile = BytesIO()
+        fig.savefig(tmpfile, format='png', transparent=True)
+        encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+        figures.append(encoded)
+        plt.close('all')
 
-    exp.save_to_file('lime.html')
-    return # exp.as_list(label=predicted_label)
+        # table
+        tables.append(exp.as_list(label=i))
+    #exp.save_to_file('lime.html',labels=[0])
+    return figures, tables 
 
 # Test
-prediction, feature_values = getVersionScore(1032049478)
-print(prediction, feature_values, len(feature_values))
-getExplaination(prediction, feature_values)
+#prediction, feature_values = getVersionScore(1032049478)
+#print(prediction, feature_values, len(feature_values))
+#getExplaination(prediction, feature_values)
 #getExplaination(prediction, feature_values, features)

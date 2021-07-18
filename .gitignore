@@ -130,4 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# misc
 functions/articlequality/datasets/.Archiv
+.Archiv

@@ -70,7 +70,7 @@ export default function FoundArticles() {
           </Button>
         </div>
         <div className="whatis">
-          <div className="text">What are revivisions?</div>
+          <div className="text">What are revisions?</div>
           <ClickAwayListener onClickAway={handleTooltipClose}>
             <div className="icon">
               <Tooltip
@@ -105,7 +105,15 @@ export default function FoundArticles() {
           </ClickAwayListener>
         </div>
       </div>
-      {results.map(ArticleRevision)}
+      {results.map((item) => (
+        <ArticleRevision
+          article={articleName}
+          key={item.key}
+          revid={item.revid}
+          user={item.user}
+          comment={item.comment}
+        />
+      ))}
     </div>
   );
 }

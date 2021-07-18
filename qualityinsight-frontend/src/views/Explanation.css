@@ -195,3 +195,29 @@
 .feature-menu {
   background-color: white !important;
 }
+
+.loading-yellow {
+  color: #aaaa85 !important;
+  margin: 10px auto !important;
+  display: block !important;
+}
+
+.loading-green {
+  color: #85aa98 !important;
+  margin: 10px auto !important;
+  display: block !important;
+}
+
+.probabilities {
+  width: 150px;
+  font-size: 12px;
+}
+
+.probBar {
+  background-color: #edf2ce !important;
+  height: 10px !important;
+}
+
+.probBar .MuiLinearProgress-bar {
+  background-color: #aaaa85;
+}
