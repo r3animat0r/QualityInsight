@@ -43,7 +43,7 @@ def getVersionScore(revID):
     #print(revID)
     feature_values = np.array(list(extractor.extract(revID, sm.features)))
     #print(feature_values)
-    return sm.score(feature_values), feature_values
+    return sm.score(feature_values), feature_values, features
 
 def getExplanation(prediction, feature_values):
     print("Explanation start!")
@@ -86,7 +86,9 @@ def getExplanation(prediction, feature_values):
         plt.close('all')
 
         # table
-        tables.append(exp.as_list(label=i))
+        expTable = exp.as_list(label=i)
+        expTableFormat = [list(x) for x in expTable]
+        tables.append(expTableFormat)
     #exp.save_to_file('lime.html',labels=[0])
     return figures, tables 
 

@@ -112,6 +112,7 @@ export default function FoundArticles() {
           revid={item.revid}
           user={item.user}
           comment={item.comment}
+          timestamp={item.timestamp}
         />
       ))}
     </div>

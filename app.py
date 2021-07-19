@@ -27,12 +27,15 @@ def foundRevisions():
 @app.route("/explanation", methods = ['POST', 'GET'])
 def explanation():
     revid = request.args.get('revid')
-    prediction, feature_values = getVersionScore(int(revid))
-    print(prediction)
+    prediction, feature_values, features = getVersionScore(int(revid))
+    #print(prediction)
     fig, tables = getExplanation(prediction, feature_values)
-    #print(fig)
-    #print(tables)
-    return {"prediction": prediction, "fig": fig, "tables": tables}
+
+    featureList = []
+    for i in range(0, len(features)):
+        featureList.append([features[i], list(feature_values)[i]])
+    #print(featureList)
+    return {"prediction": prediction, "fig": fig, "tables": tables, "featureValues": featureList}
 
 api.add_resource(ApiHandler, '/')
 

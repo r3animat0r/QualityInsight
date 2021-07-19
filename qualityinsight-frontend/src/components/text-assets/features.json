@@ -1,179 +1,127 @@
 {
-  "features": [
-    {
-      "key": "f0",
-      "name": "Average length of stemmed text",
-      "fullFeatureName": "feature.english.stemmed.revision.stems_length",
-      "explanation": "<p>This feature describes the average length of stemmed text.</p> <p>Stemming is a form of text normalizationwhere text dimensionality is reduced.</p>",
-      "example": ""
-    },
-    {
-      "key": "f1",
-      "name": "Number of infobox images",
-      "fullFeatureName": "feature.enwiki.infobox_images",
-      "explanation": "<p>This feature describes the amount of images inside the infobox of the article</p>",
-      "example": ""
-    },
-    {
-      "key": "f2",
-      "name": "Number of main article templates",
-      "fullFeatureName": "feature.enwiki.main_article_templates",
-      "explanation": "<p>This feature describes number of used main article templates. This template includes a link to an article with the subtopic before the subtopic is summarized in the main article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f3",
-      "name": "Number of links to same category articles",
-      "fullFeatureName": "feature.enwiki.revision.category_links",
-      "explanation": "<p>This feature describes the amount of links to other Wikipedia articles that have a similar topic and thus belong to the same category.</p>",
-      "example": ""
-    },
-    {
-      "key": "f4",
-      "name": "",
-      "fullFeatureName": "feature.enwiki.revision.cite_templates",
-      "explanation": "<p>This feature describes the number of used citation templates, last visited: 29. June 2021, 12:25}. Citation templates are used to generate citations for books, web pages or other references.</p>",
-      "example": ""
-    },
-    {
-      "key": "f5",
-      "name": "Number of citation needed templates",
-      "fullFeatureName": "feature.enwiki.revision.cn_templates",
-      "explanation": "<p>The number of used citation needed templates. This template is used to make annotations in the article where citations are missing. After the sentence in question it says [citation needed].</p>",
-      "example": ""
-    },
-    {
-      "key": "f6",
-      "name": "Number of images",
-      "fullFeatureName": "feature.enwiki.revision.image_links",
-      "explanation": "<p>This feature describes the amount of images in an article excluding the images from the infobox.</p>",
-      "example": ""
-    },
-    {
-      "key": "f7",
-      "name": "Number of image request templates",
-      "fullFeatureName": "feature.enwiki.revision.image_template",
-      "explanation": "",
-      "example": ""
-    },
-    {
-      "key": "f8",
-      "name": "Number of images in tags",
-      "fullFeatureName": "feature.enwiki.revision.images_in_tags",
-      "explanation": "",
-      "example": ""
-    },
-    {
-      "key": "f9",
-      "name": "Number of images in templates",
-      "fullFeatureName": "feature.enwiki.revision.images_in_templates",
-      "explanation": "",
-      "example": ""
-    },
-    {
-      "key": "f10",
-      "name": "Number of infobox templates",
-      "fullFeatureName": "feature.enwiki.revision.infobox_templates",
-      "explanation": "<p>This feature describes the number of infobox templates. Infoboxes are used for a brief overview of details and there is normally just one.</p>",
-      "example": ""
-    },
-    {
-      "key": "f11",
-      "name": "Number of characters in paragraphs without ref",
-      "fullFeatureName": "feature.enwiki.revision.paragraphs_without_refs_total_length",
-      "explanation": "<p>This feature describes </p>",
-      "example": ""
-    },
-    {
-      "key": "f12",
-      "name": "Number of shortened footnote templates",
-      "fullFeatureName": "feature.enwiki.revision.shortened_footnote_templates",
-      "explanation": "<p>This feature describes the number of used shortened footnote (sfn) templates. This template creates a author and date citation in a footnote. It can be used to combine identical citations.</p>",
-      "example": ""
-    },
-    {
-      "key": "f13",
-      "name": "Number of who templates",
-      "fullFeatureName": "feature.enwiki.revision.who_templates",
-      "explanation": "<p>This feature describes the amount of used who templates. This template is used to make annotations in the article where a person should be specified. After the word in question it says [who?].</p>",
-      "example": "'Experts [who?] confirm that...'"
-    },
-    {
-      "key": "f14",
-      "name": "Idioms",
-      "fullFeatureName": "feature.len(<datasource.english.idioms.revision.matches>)",
-      "explanation": "<p>This feature describes </p>",
-      "example": ""
-    },
-    {
-      "key": "f15",
-      "name": "Number of Words to watch",
-      "fullFeatureName": "feature.len(<datasource.english.words_to_watch.revision.matches>)",
-      "explanation": "<p>This feature describes </p>",
-      "example": ""
-    },
-    {
-      "key": "f16",
-      "name": "Number of words",
-      "fullFeatureName": "feature.len(<datasource.wikitext.revision.words>)",
-      "explanation": "<p>This feature describes the number of words in the article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f17",
-      "name": "Number of characters",
-      "fullFeatureName": "feature.wikitext.revision.chars",
-      "explanation": "<p>This feature describes the amount of characters in the entire article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f18",
-      "name": "Number of characters in content",
-      "fullFeatureName": "feature.wikitext.revision.content_chars",
-      "explanation": "<p>This feature describes the amount of characters in the content part of the article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f19",
-      "name": "Number of external links",
-      "fullFeatureName": "feature.wikitext.revision.external_links",
-      "explanation": "<p>This feature describes the number of links leading to external websites in the article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f20",
-      "name": "Number of sections",
-      "fullFeatureName": "feature.wikitext.revision.headings_by_level(2)",
-      "explanation": "<p>This feature describes the number of sections in an article. In Wikipedia, these are the 2nd level headings.</p> <p>More sections influence the prediction positively.</p>",
-      "example": "\"1 History\" <br /> \"2 Geography\" <br /> \"2 Demographics\""
-    },
-    {
-      "key": "f21",
-      "name": "Number of subsections",
-      "fullFeatureName": "feature.wikitext.revision.headings_by_level(3)",
-      "explanation": "<p>This feature describes the amount of subsections in the article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f22",
-      "name": "Reftags",
-      "fullFeatureName": "feature.wikitext.revision.ref_tags",
-      "explanation": "<p>This feature describes </p>",
-      "example": ""
-    },
-    {
-      "key": "f23",
-      "name": "Number of all templates",
-      "fullFeatureName": "feature.wikitext.revision.templates",
-      "explanation": "<p>This feature describes the number of all templates used in the article.</p>",
-      "example": ""
-    },
-    {
-      "key": "f24",
-      "name": "Links to other articles",
-      "fullFeatureName": "feature.wikitext.revision.wikilinks",
-      "explanation": "<p>This feature describes the amount of links leading to other Wikipedia pages in the content part of the article. This excludes links inside of templates.</p>",
-      "example": ""
-    }
-  ]
+  "Average length of stemmed text": {
+    "fullFeatureName": "feature.english.stemmed.revision.stems_length",
+    "explanation": "This feature describes the average length of stemmed text.   Stemming is a form of text normalizationwhere text dimensionality is reduced.",
+    "example": ""
+  },
+  "Number of infobox images": {
+    "fullFeatureName": "feature.enwiki.infobox_images",
+    "explanation": "This feature describes the amount of images inside the infobox of the article ",
+    "example": ""
+  },
+  "Number of main article templates": {
+    "fullFeatureName": "feature.enwiki.main_article_templates",
+    "explanation": "This feature describes number of used main article templates. This template includes a link to an article with the subtopic before the subtopic is summarized in the main article. ",
+    "example": ""
+  },
+  "Number of links to same category articles": {
+    "fullFeatureName": "feature.enwiki.revision.category_links",
+    "explanation": "This feature describes the amount of links to other Wikipedia articles that have a similar topic and thus belong to the same category. ",
+    "example": ""
+  },
+  "Number of citation templates": {
+    "fullFeatureName": "feature.enwiki.revision.cite_templates",
+    "explanation": "This feature describes the number of used citation templates. Citation templates are used to generate citations for books, web pages or other references. ",
+    "example": ""
+  },
+  "Number of citation needed templates": {
+    "fullFeatureName": "feature.enwiki.revision.cn_templates",
+    "explanation": "The number of used citation needed templates. This template is used to make annotations in the article where citations are missing. After the sentence in question it says [citation needed]. ",
+    "example": ""
+  },
+  "Number of images": {
+    "fullFeatureName": "feature.enwiki.revision.image_links",
+    "explanation": "This feature describes the amount of images in an article excluding the images from the infobox. ",
+    "example": ""
+  },
+  "Number of image request templates": {
+    "fullFeatureName": "feature.enwiki.revision.image_template",
+    "explanation": "",
+    "example": ""
+  },
+  "Number of images in tags": {
+    "fullFeatureName": "feature.enwiki.revision.images_in_tags",
+    "explanation": "",
+    "example": ""
+  },
+  "Number of images in templates": {
+    "fullFeatureName": "feature.enwiki.revision.images_in_templates",
+    "explanation": "",
+    "example": ""
+  },
+  "Number of infobox templates": {
+    "fullFeatureName": "feature.enwiki.revision.infobox_templates",
+    "explanation": "This feature describes the number of infobox templates. Infoboxes are used for a brief overview of details and there is normally just one. ",
+    "example": ""
+  },
+  "Number of characters in paragraphs without ref": {
+    "fullFeatureName": "feature.enwiki.revision.paragraphs_without_refs_total_length",
+    "explanation": "This feature describes  ",
+    "example": ""
+  },
+  "Number of shortened footnote templates": {
+    "fullFeatureName": "feature.enwiki.revision.shortened_footnote_templates",
+    "explanation": "This feature describes the number of used shortened footnote (sfn) templates. This template creates a author and date citation in a footnote. It can be used to combine identical citations. ",
+    "example": ""
+  },
+  "Number of who templates": {
+    "fullFeatureName": "feature.enwiki.revision.who_templates",
+    "explanation": "This feature describes the amount of used who templates. This template is used to make annotations in the article where a person should be specified. After the word in question it says [who?]. ",
+    "example": "'Experts [who?] confirm that...'"
+  },
+  "Idioms": {
+    "fullFeatureName": "feature.len(<datasource.english.idioms.revision.matches>)",
+    "explanation": "This feature describes  ",
+    "example": ""
+  },
+  "Number of Words to watch": {
+    "fullFeatureName": "feature.len(<datasource.english.words_to_watch.revision.matches>)",
+    "explanation": "This feature describes  ",
+    "example": ""
+  },
+  "Number of words": {
+    "fullFeatureName": "feature.len(<datasource.wikitext.revision.words>)",
+    "explanation": "This feature describes the number of words in the article. ",
+    "example": ""
+  },
+  "Number of characters": {
+    "fullFeatureName": "feature.wikitext.revision.chars",
+    "explanation": "This feature describes the amount of characters in the entire article. ",
+    "example": ""
+  },
+  "Number of characters in content": {
+    "fullFeatureName": "feature.wikitext.revision.content_chars",
+    "explanation": "This feature describes the amount of characters in the content part of the article. ",
+    "example": ""
+  },
+  "Number of external links": {
+    "fullFeatureName": "feature.wikitext.revision.external_links",
+    "explanation": "This feature describes the number of links leading to external websites in the article. ",
+    "example": ""
+  },
+  "Number of sections": {
+    "fullFeatureName": "feature.wikitext.revision.headings_by_level(2)",
+    "explanation": "This feature describes the number of sections in an article. In Wikipedia, these are the 2nd level headings. \n\nMore sections influence the prediction positively. ",
+    "example": "\n\"1 History\"  \n \"2 Geography\"  \n \"2 Demographics\""
+  },
+  "Number of subsections": {
+    "fullFeatureName": "feature.wikitext.revision.headings_by_level(3)",
+    "explanation": "This feature describes the amount of subsections in the article. ",
+    "example": ""
+  },
+  "Reftags": {
+    "fullFeatureName": "feature.wikitext.revision.ref_tags",
+    "explanation": "This feature describes  ",
+    "example": ""
+  },
+  "Number of all templates": {
+    "fullFeatureName": "feature.wikitext.revision.templates",
+    "explanation": "This feature describes the number of all templates used in the article. ",
+    "example": ""
+  },
+  "Links to other articles": {
+    "fullFeatureName": "feature.wikitext.revision.wikilinks",
+    "explanation": "This feature describes the amount of links leading to other Wikipedia pages in the content part of the article. This excludes links inside of templates. ",
+    "example": ""
+  }
 }

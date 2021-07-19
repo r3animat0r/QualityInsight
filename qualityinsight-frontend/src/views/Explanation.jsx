@@ -125,6 +125,7 @@ export default function FoundArticles() {
               ) : (
                 <Prediction
                   figures={results.fig}
+                  featureValues={results.featureValues}
                   tables={results.tables}
                   prediction={results.prediction}
                 />
@@ -146,6 +147,7 @@ export default function FoundArticles() {
                   <PredictionExplanation
                     results={results.prediction}
                     revid={revid}
+                    tables={results.tables}
                   />
                 )}
               </CardContent>
