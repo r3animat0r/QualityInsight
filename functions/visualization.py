@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 import json
 import mwapi 
-import matplotlib
+from textwrap import wrap
 
 import articlequality
 from revscoring import Model
@@ -31,8 +31,14 @@ observations = list(read_observations(open(os.path.realpath("functions/articlequ
 extractor = api.Extractor(mwapi.Session("https://en.wikipedia.org", user_agent="ORES-LIME demo"))
 # load model for enwiki
 sm = Model.load(open(model_path), error_on_env_check=False)
-# get features
+# get featurenames
 features = [str(f) for f in sm.features]
+with open('data/feature-names.json') as json_file:
+    altFeatureNames = json.load(json_file)
+altFeatures = []
+for f in features:
+    altFeatures.append(altFeatureNames[f])
+altFeatures = ['\n'.join(wrap(l, 40)) for l in altFeatures]
 
 # based on tabular data -> prepared training set for LIME in ./articlequality/training/train.csv
 # load training data
@@ -50,7 +56,7 @@ def getExplanation(prediction, feature_values):
     explainer = LimeTabularExplainer(
         train,
         mode="classification",
-        feature_names=features,
+        feature_names=altFeatures,
         class_names=class_names,
         discretize_continuous=False
     )
@@ -59,7 +65,6 @@ def getExplanation(prediction, feature_values):
         raw_results = [np.array([sm.score(v)["probability"][t] for t in ["B","C","FA","GA","Start","Stub"]]) for v in samples]
         return np.array(raw_results)
 
-    predicted_label = prediction["prediction"]
     exp = explainer.explain_instance(
         np.array(feature_values),
         score,
@@ -71,11 +76,14 @@ def getExplanation(prediction, feature_values):
 
     # get graphs and info for table for every label
     figures = []
-    tables = []
+    #tables = []
+    with open('data/feature-names.json') as json_file:
+        altFeatureNames = json.load(json_file)
     for i in range(0,6):
         # graph
+        plt.rcParams.update({'font.size': 10})
         fig = exp.as_pyplot_figure(label=i)
-        fig.set_size_inches(20, 10)
+        fig.set_size_inches(10, 40)
         plt.tight_layout()
         #fig.savefig('lime' + str(i) + '.png', transparent=False, dpi=100)
         
@@ -85,12 +93,8 @@ def getExplanation(prediction, feature_values):
         figures.append(encoded)
         plt.close('all')
 
-        # table
-        expTable = exp.as_list(label=i)
-        expTableFormat = [list(x) for x in expTable]
-        tables.append(expTableFormat)
     #exp.save_to_file('lime.html',labels=[0])
-    return figures, tables 
+    return figures 
 
 # Test
 #prediction, feature_values = getVersionScore(1032049478)

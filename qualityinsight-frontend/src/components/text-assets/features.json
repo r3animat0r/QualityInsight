@@ -69,12 +69,12 @@
     "explanation": "This feature describes the amount of used who templates. This template is used to make annotations in the article where a person should be specified. After the word in question it says [who?]. ",
     "example": "'Experts [who?] confirm that...'"
   },
-  "Idioms": {
+  "Number of Idioms": {
     "fullFeatureName": "feature.len(<datasource.english.idioms.revision.matches>)",
     "explanation": "This feature describes  ",
     "example": ""
   },
-  "Number of Words to watch": {
+  "Number of words to watch": {
     "fullFeatureName": "feature.len(<datasource.english.words_to_watch.revision.matches>)",
     "explanation": "This feature describes  ",
     "example": ""
@@ -109,7 +109,7 @@
     "explanation": "This feature describes the amount of subsections in the article. ",
     "example": ""
   },
-  "Reftags": {
+  "Number of Reftags": {
     "fullFeatureName": "feature.wikitext.revision.ref_tags",
     "explanation": "This feature describes  ",
     "example": ""
@@ -119,7 +119,7 @@
     "explanation": "This feature describes the number of all templates used in the article. ",
     "example": ""
   },
-  "Links to other articles": {
+  "Number of links to other articles": {
     "fullFeatureName": "feature.wikitext.revision.wikilinks",
     "explanation": "This feature describes the amount of links leading to other Wikipedia pages in the content part of the article. This excludes links inside of templates. ",
     "example": ""

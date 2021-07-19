@@ -126,7 +126,6 @@ export default function FoundArticles() {
                 <Prediction
                   figures={results.fig}
                   featureValues={results.featureValues}
-                  tables={results.tables}
                   prediction={results.prediction}
                 />
               )}

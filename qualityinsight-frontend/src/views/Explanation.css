@@ -189,6 +189,11 @@
   text-align: center;
 }
 
+.prediction-tab {
+  height: 600px;
+  overflow-y: auto;
+}
+
 .feature-table {
   height: 180px;
   width: 100%;

@@ -17,14 +17,11 @@ import TableRow from "@material-ui/core/TableRow";
 
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-import TabFeat from "../test/tab-feat.png";
-
 /**
  *
  * @param {Object} props
  * @param {string} props.figures
  * @param {string} props.featureValues
- * @param {string} props.tables
  * @param {Object} props.prediction
  * @returns
  */
@@ -56,13 +53,12 @@ TabPanel.propTypes = {
 };
 
 export default function Prediction(props) {
-  /* console.log(props.tables); */
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   let diagramTip =
-    "This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers on the x-axis are the percentage of the influence.";
+    "This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers on the x-axis are the percentage divided by 100 of the influence. Click on the image for a full-sized image of the graph.";
 
   return (
     <div className="prediction-content">
@@ -73,7 +69,7 @@ export default function Prediction(props) {
             title={
               <React.Fragment>
                 Stub, Start, C, B, GA and FA are grades that the english
-                Wikipedia uses for
+                Wikipedia uses for{" "}
                 <a
                   href="https://en.wikipedia.org/wiki/Wikipedia:Content_assessment"
                   target="_blank"
@@ -90,23 +86,73 @@ export default function Prediction(props) {
           >
             <div className="probabilities">
               <div className="tableTitle">Prediction probabilities</div>
-              {Object.keys(props.prediction.probability).map((key) => (
-                <>
-                  <div className="space-between">
-                    <span>{key}</span>
-                    <span>
-                      {Math.round(props.prediction.probability[key] * 100) /
-                        100}
-                    </span>
-                  </div>
-
-                  <LinearProgress
-                    classes={{ root: "probBar" }}
-                    variant="determinate"
-                    value={props.prediction.probability[key] * 100}
-                  />
-                </>
-              ))}
+              <div className="space-between">
+                <span>Stub</span>
+                <span>
+                  {Math.round(props.prediction.probability["Stub"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["Stub"] * 100}
+              />
+              <div className="space-between">
+                <span>Start</span>
+                <span>
+                  {Math.round(props.prediction.probability["Start"] * 100) /
+                    100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["Start"] * 100}
+              />
+              <div className="space-between">
+                <span>C</span>
+                <span>
+                  {Math.round(props.prediction.probability["C"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["C"] * 100}
+              />
+              <div className="space-between">
+                <span>B</span>
+                <span>
+                  {Math.round(props.prediction.probability["B"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["B"] * 100}
+              />
+              <div className="space-between">
+                <span>GA</span>
+                <span>
+                  {Math.round(props.prediction.probability["GA"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["GA"] * 100}
+              />
+              <div className="space-between">
+                <span>FA</span>
+                <span>
+                  {Math.round(props.prediction.probability["FA"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["FA"] * 100}
+              />
             </div>
           </Tooltip>
         </div>
@@ -115,9 +161,8 @@ export default function Prediction(props) {
             classes={{ popper: "tip" }}
             title={
               <React.Fragment>
-                This table lists the features and their values. The features are
-                sorted based on their influence on the prediction, which means
-                how much weight they have in the calculation.
+                This table lists the features and their values for this
+                revision. The features are not sorted in a special way.
               </React.Fragment>
             }
             placement="bottom-end"
@@ -186,82 +231,130 @@ export default function Prediction(props) {
             <Tab classes={{ root: "tab-style" }} label="Fa" />
           </Tabs>
         </Paper>
-        <TabPanel classes={{ root: "tab-content" }} value={value} index={0}>
+        <TabPanel value={value} index={0}>
           <Tooltip
             classes={{ popper: "tip" }}
             title={diagramTip}
-            placement="right-end"
+            placement="right"
           >
-            <img
-              src={"data:image/png;base64," + props.figures[5]}
-              alt="tab-prob"
-              style={{ width: "500px" }}
-            />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[5]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[5]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Tooltip
             classes={{ popper: "tip" }}
             title={diagramTip}
-            placement="right-end"
+            placement="right"
           >
-            <img
-              src={"data:image/png;base64," + props.figures[4]}
-              alt="tab-prob"
-              style={{ width: "500px" }}
-            />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[4]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[4]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Tooltip
             classes={{ popper: "tip" }}
             title={diagramTip}
-            placement="right-end"
+            placement="right"
           >
-            <img
-              src={"data:image/png;base64," + props.figures[1]}
-              alt="tab-prob"
-              style={{ width: "500px" }}
-            />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[1]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[1]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={3}>
           <Tooltip
             classes={{ popper: "tip" }}
             title={diagramTip}
-            placement="right-end"
+            placement="right"
           >
-            <img
-              src={"data:image/png;base64," + props.figures[0]}
-              alt="tab-prob"
-              style={{ width: "500px" }}
-            />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[0]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[0]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={4}>
           <Tooltip
             classes={{ popper: "tip" }}
             title={diagramTip}
-            placement="right-end"
+            placement="right"
           >
-            <img
-              src={"data:image/png;base64," + props.figures[3]}
-              alt="tab-prob"
-              style={{ width: "500px" }}
-            />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[3]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[3]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={5}>
           <Tooltip
             classes={{ popper: "tip" }}
             title={diagramTip}
-            placement="right-end"
+            placement="right"
           >
-            <img
-              src={"data:image/png;base64," + props.figures[2]}
-              alt="tab-prob"
-              style={{ width: "500px" }}
-            />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[2]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[2]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
       </div>
