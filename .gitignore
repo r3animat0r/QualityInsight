@@ -109,6 +109,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+qualityinsight-frontend/node_modules
+qualityinsight-frontend/dist
+qi.code-workspace
 
 # Spyder project settings
 .spyderproject
@@ -127,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# misc
+functions/articlequality/datasets/.Archiv
+.Archiv
