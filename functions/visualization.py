@@ -6,7 +6,7 @@ import base64
 from io import BytesIO
 from matplotlib.pyplot import show
 from matplotlib.pyplot import figure
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt #, mpld3
 
 import pandas as pd
 import numpy as np
@@ -14,7 +14,7 @@ import json
 import mwapi 
 from textwrap import wrap
 
-import articlequality
+#import articlequality
 from revscoring import Model
 from revscoring.extractors import api
 from revscoring.utilities.util import read_observations # Get training set
