@@ -22,6 +22,8 @@ export default function ArticleRevision(props) {
   return (
     <div className="search-result" key={props.key}>
       <Tooltip
+        enterDelay={500}
+        leaveDelay={200}
         classes={{ popper: "tip" }}
         title="Click here to select this revision"
       >

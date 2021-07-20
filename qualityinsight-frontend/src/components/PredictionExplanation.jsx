@@ -1,6 +1,7 @@
 import React from "react";
 import Grades from "./text-assets/grades.json";
 
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 /**
@@ -47,6 +48,13 @@ export default function PredictionExplanation(props) {
           </ul>
         </p>
       </Typography>
+      <Button
+        href="https://en.wikipedia.org/wiki/Wikipedia:Content_assessment#Grades"
+        target="_blank"
+        size="small"
+      >
+        Click here for more information about the content assesment
+      </Button>
     </div>
   );
 }

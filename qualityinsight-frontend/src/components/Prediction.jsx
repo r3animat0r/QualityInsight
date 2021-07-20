@@ -65,6 +65,8 @@ export default function Prediction(props) {
       <div className="prediction-tables flex-container">
         <div className="prediction-prob">
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={
               <React.Fragment>
@@ -158,11 +160,16 @@ export default function Prediction(props) {
         </div>
         <div className="prediction-feat">
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={
               <React.Fragment>
                 This table lists the features and their values for this
-                revision. The features are not sorted in a special way.
+                revision. The features are not sorted in a special way. Some
+                features for the calculation consist of more than one of the
+                features of the article quality model, leading to more values in
+                this table.
               </React.Fragment>
             }
             placement="bottom-end"
@@ -233,6 +240,8 @@ export default function Prediction(props) {
         </Paper>
         <TabPanel value={value} index={0}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={diagramTip}
             placement="right"
@@ -254,6 +263,8 @@ export default function Prediction(props) {
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={diagramTip}
             placement="right"
@@ -275,6 +286,8 @@ export default function Prediction(props) {
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={diagramTip}
             placement="right"
@@ -296,6 +309,8 @@ export default function Prediction(props) {
         </TabPanel>
         <TabPanel value={value} index={3}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={diagramTip}
             placement="right"
@@ -317,6 +332,8 @@ export default function Prediction(props) {
         </TabPanel>
         <TabPanel value={value} index={4}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={diagramTip}
             placement="right"
@@ -338,6 +355,8 @@ export default function Prediction(props) {
         </TabPanel>
         <TabPanel value={value} index={5}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={diagramTip}
             placement="right"

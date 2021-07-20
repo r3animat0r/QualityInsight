@@ -1,18 +1,38 @@
 {
   "Stub": {
-    "criteria": ["1", "2"],
+    "criteria": [
+      "Very short, not much content",
+      "Rough collection of information"
+    ],
     "improvements": [
-      "Add more text",
-      "Link to other related Wikipedia pages inside the content part"
+      "Add more content",
+      "Add referenced reasons why the topic is relevant",
+      "Link to other related Wikipedia pages inside the content part",
+      "Any additional material can help raise the quality"
     ]
   },
   "Start": {
-    "criteria": ["1", "2"],
-    "improvements": ["", ""]
+    "criteria": [
+      "Usable amount of content, but still not enough",
+      "May lack some referencing",
+      "Has enough sources to be verifiable"
+    ],
+    "improvements": [
+      "Add more reliable sources",
+      "Improving content and article structure",
+      "Add more content"
+    ]
   },
   "C": {
-    "criteria": ["1", "2"],
-    "improvements": ["", ""]
+    "criteria": [
+      "Has more than one reliable source",
+      "Article has some structure"
+    ],
+    "improvements": [
+      "Add some supporting materials, such as images or diagrams",
+      "Add an Infobox if there is none",
+      "Check for uncited content and add references"
+    ]
   },
   "B": {
     "criteria": [
@@ -28,11 +48,25 @@
     ]
   },
   "GA": {
-    "criteria": ["1", "2"],
-    "improvements": ["", ""]
+    "criteria": [
+      "Has been reviewed by at least one reviewer",
+      "Is verifiable with no original research",
+      "Is stable, meaning the article doesn't change that much anymore",
+      "Includes images, video or audio"
+    ],
+    "improvements": [
+      "Compare this article with a similar article that has the grade FA, this may help to see what is still lacking"
+    ]
   },
   "FA": {
-    "criteria": ["1", "2"],
-    "improvements": ["", ""]
+    "criteria": [
+      "Had to pass an in-depth examination by reviewers",
+      "Is well researched and cited",
+      "Has a lot of important content",
+      "Includes images and other media that have captions and have a acceptable copyright status"
+    ],
+    "improvements": [
+      "No additions are necessary unless there is new information"
+    ]
   }
 }

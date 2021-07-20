@@ -87,11 +87,19 @@ export default function FoundArticles() {
                               Predictions
                             </Typography>
                             <Typography variant="body2" align="left">
-                              The prediciton is made with the ORES article
-                              quality model. <br></br>
+                              The prediction is made with the ORES article
+                              quality model of the english Wikipedia. <br></br>
                               The displayed probabilities for the shown grades
                               are calculated using the feature values. There is
-                              a graph for every grade.
+                              a graph for every grade created with{" "}
+                              <a
+                                href="https://github.com/marcotcr/lime"
+                                target="_blank"
+                              >
+                                LIME
+                              </a>{" "}
+                              to explain how the feature values affect the
+                              prediction.
                             </Typography>
                           </React.Fragment>
                         }
@@ -121,7 +129,10 @@ export default function FoundArticles() {
               </div>
               <Divider classes={{ root: "card-divider-yellow" }} />
               {!results ? (
-                <CircularProgress classes={{ root: "loading-yellow" }} />
+                <div style={{ textAlign: "center" }}>
+                  <CircularProgress classes={{ root: "loading-yellow" }} />{" "}
+                  Calculating... This can take up to two minutes.
+                </div>
               ) : (
                 <Prediction
                   figures={results.fig}
@@ -176,7 +187,8 @@ export default function FoundArticles() {
                                 Each feature represents a characteristics of the
                                 article. There are 25 features in total for the
                                 articlequality model used in the english
-                                Wikipedia.
+                                Wikipedia. These features are used in
+                                calculations for the prediction.
                               </Typography>
                             </React.Fragment>
                           }
