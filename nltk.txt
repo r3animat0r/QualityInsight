@@ -1,0 +1,4 @@
+omw
+sentiwordnet
+stopwords
+wordnet
