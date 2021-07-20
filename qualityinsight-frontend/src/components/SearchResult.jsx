@@ -20,10 +20,15 @@ export default function SearchResult(props) {
   return (
     <div className="search-result" key={props.key}>
       <Tooltip
+        enterDelay={500}
+        leaveDelay={200}
         classes={{ popper: "tip" }}
         title="Click here to select this article"
       >
-        <Link to={"/found-revisions?article=" + props.articleName}>
+        <Link
+          className="button-link"
+          to={"/found-revisions?article=" + props.articleName}
+        >
           <Button classes={{ root: "select-button" }} variant="contained">
             Select
           </Button>

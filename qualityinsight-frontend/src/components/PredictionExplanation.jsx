@@ -1,8 +1,19 @@
 import React from "react";
+import Grades from "./text-assets/grades.json";
 
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-export default function PredictionExplanation() {
+/**
+ *
+ * @param {Object} props
+ * @param {Object} props.results
+ * @param {string} props.revid
+ * @returns
+ */
+
+export default function PredictionExplanation(props) {
+  console.log(Grades[props.results.prediction].criteria);
   return (
     <div>
       <Typography
@@ -11,14 +22,18 @@ export default function PredictionExplanation() {
         classes={{ body1: "content" }}
       >
         <p>
-          The prediction for the revision with the ID 1027689158 suggests that
-          this article gets the grading B with the probability of 38%. This
-          indicates that the article meets following structural criterias:
+          The prediction for the revision with the ID {props.revid} suggests
+          that this article gets the grading {props.results.prediction} with the
+          probability of{" "}
+          {Math.round(
+            props.results.probability[props.results.prediction] * 100
+          )}
+          %. This indicates that the article meets following structural
+          criterias:
           <ul className="list-style">
-            <li>Suitable referenced</li>
-            <li>Has a defined structure</li>
-            <li>Pictures or diagrams are present</li>
-            <li>An Infobox is present </li>
+            {Grades[props.results.prediction].criteria.map((item) => (
+              <li>{item}</li>
+            ))}
           </ul>
           ORES article quality model only predicts the quality based on
           structural features, so a good and neutral writing style doesn’t
@@ -27,17 +42,19 @@ export default function PredictionExplanation() {
         <p>
           How this article revision could be improved:
           <ul className="list-style">
-            <li>
-              check if all inline citations are referenced and from reliable
-              sources
-            </li>
-            <li>add more images, videos or audio if possible</li>
-            <li>
-              add some links with relevant websites with a short description
-            </li>
+            {Grades[props.results.prediction].improvements.map((item) => (
+              <li>{item}</li>
+            ))}
           </ul>
         </p>
       </Typography>
+      <Button
+        href="https://en.wikipedia.org/wiki/Wikipedia:Content_assessment#Grades"
+        target="_blank"
+        size="small"
+      >
+        Click here for more information about the content assesment
+      </Button>
     </div>
   );
 }

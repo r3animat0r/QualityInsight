@@ -1,5 +1,7 @@
 import "./Explanation.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory, useLocation } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
@@ -16,21 +18,52 @@ import Prediction from "../components/Prediction";
 import PredictionExplanation from "../components/PredictionExplanation";
 import FeatureExplanation from "../components/FeatureExplanation";
 
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 export default function FoundArticles() {
   const [predOpen, setPredOpen] = React.useState(false);
   const [feaOpen, setFeaOpen] = React.useState(false);
 
+  const [results, setResults] = useState();
+  let history = useHistory();
+  let location = useLocation();
+  let articleName = new URLSearchParams(location.search).get("article");
+  let revid = new URLSearchParams(location.search).get("revid");
+
+  useEffect(() => {
+    axios
+      .get(
+        "http://localhost:5000/explanation?article=" +
+          articleName +
+          "&revid=" +
+          revid
+      )
+      .then((response) => {
+        setResults(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div id="content-exp">
       <div className="head">
-        <Button classes={{ root: "back-button" }} variant="contained">
+        <Button
+          onClick={() => {
+            history.goBack();
+          }}
+          classes={{ root: "back-button" }}
+          variant="contained"
+        >
           Back to revision selection
         </Button>
         <div className="revision-info">
           <Typography variant="overline">Article Quality Prediction</Typography>
           <Typography classes={{ root: "revision-title" }} variant="subtitle1">
-            You are currently viewing the prediction for the article Free
-            University of Berlin with the Revision ID 1027689158
+            You are currently viewing the prediction for the article{" "}
+            {articleName} with the Revision ID {revid}
           </Typography>
         </div>
       </div>
@@ -54,11 +87,19 @@ export default function FoundArticles() {
                               Predictions
                             </Typography>
                             <Typography variant="body2" align="left">
-                              The prediciton is made with the ORES article
-                              quality model. <br></br>
+                              The prediction is made with the ORES article
+                              quality model of the english Wikipedia. <br></br>
                               The displayed probabilities for the shown grades
                               are calculated using the feature values. There is
-                              a graph for every grade.
+                              a graph for every grade created with{" "}
+                              <a
+                                href="https://github.com/marcotcr/lime"
+                                target="_blank"
+                              >
+                                LIME
+                              </a>{" "}
+                              to explain how the feature values affect the
+                              prediction.
                             </Typography>
                           </React.Fragment>
                         }
@@ -87,7 +128,18 @@ export default function FoundArticles() {
                 </div>
               </div>
               <Divider classes={{ root: "card-divider-yellow" }} />
-              <Prediction />
+              {!results ? (
+                <div style={{ textAlign: "center" }}>
+                  <CircularProgress classes={{ root: "loading-yellow" }} />{" "}
+                  Calculating... This can take up to two minutes.
+                </div>
+              ) : (
+                <Prediction
+                  figures={results.fig}
+                  featureValues={results.featureValues}
+                  prediction={results.prediction}
+                />
+              )}
             </CardContent>
           </Card>
         </div>
@@ -99,7 +151,15 @@ export default function FoundArticles() {
                   Explanation of the prediction
                 </Typography>
                 <Divider classes={{ root: "card-divider-green" }} />
-                <PredictionExplanation />
+                {!results ? (
+                  <CircularProgress classes={{ root: "loading-green" }} />
+                ) : (
+                  <PredictionExplanation
+                    results={results.prediction}
+                    revid={revid}
+                    tables={results.tables}
+                  />
+                )}
               </CardContent>
             </Card>
           </div>
@@ -127,7 +187,8 @@ export default function FoundArticles() {
                                 Each feature represents a characteristics of the
                                 article. There are 25 features in total for the
                                 articlequality model used in the english
-                                Wikipedia.
+                                Wikipedia. These features are used in
+                                calculations for the prediction.
                               </Typography>
                             </React.Fragment>
                           }

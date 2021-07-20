@@ -8,9 +8,23 @@ import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import TabProb from "../test/tab-prob.png";
-import TabFeat from "../test/tab-feat.png";
-import Graph from "../test/graph.png";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+
+import LinearProgress from "@material-ui/core/LinearProgress";
+
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.figures
+ * @param {string} props.featureValues
+ * @param {Object} props.prediction
+ * @returns
+ */
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -38,22 +52,26 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-export default function Prediction() {
+export default function Prediction(props) {
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  let diagramTip =
+    "This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers on the x-axis are the percentage divided by 100 of the influence. Click on the image for a full-sized image of the graph.";
 
   return (
     <div className="prediction-content">
       <div className="prediction-tables flex-container">
         <div className="prediction-prob">
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={
               <React.Fragment>
                 Stub, Start, C, B, GA and FA are grades that the english
-                Wikipedia uses for
+                Wikipedia uses for{" "}
                 <a
                   href="https://en.wikipedia.org/wiki/Wikipedia:Content_assessment"
                   target="_blank"
@@ -68,23 +86,134 @@ export default function Prediction() {
             placement="bottom-end"
             interactive
           >
-            <img src={TabProb} alt="tab-prob" style={{ width: "120px" }} />
+            <div className="probabilities">
+              <div className="tableTitle">Prediction probabilities</div>
+              <div className="space-between">
+                <span>Stub</span>
+                <span>
+                  {Math.round(props.prediction.probability["Stub"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["Stub"] * 100}
+              />
+              <div className="space-between">
+                <span>Start</span>
+                <span>
+                  {Math.round(props.prediction.probability["Start"] * 100) /
+                    100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["Start"] * 100}
+              />
+              <div className="space-between">
+                <span>C</span>
+                <span>
+                  {Math.round(props.prediction.probability["C"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["C"] * 100}
+              />
+              <div className="space-between">
+                <span>B</span>
+                <span>
+                  {Math.round(props.prediction.probability["B"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["B"] * 100}
+              />
+              <div className="space-between">
+                <span>GA</span>
+                <span>
+                  {Math.round(props.prediction.probability["GA"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["GA"] * 100}
+              />
+              <div className="space-between">
+                <span>FA</span>
+                <span>
+                  {Math.round(props.prediction.probability["FA"] * 100) / 100}
+                </span>
+              </div>
+              <LinearProgress
+                classes={{ root: "probBar" }}
+                variant="determinate"
+                value={props.prediction.probability["FA"] * 100}
+              />
+            </div>
           </Tooltip>
         </div>
         <div className="prediction-feat">
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
             title={
               <React.Fragment>
-                This table lists the features and their values. The features are
-                sorted based on their influence on the prediction, which means
-                how much weight they have in the calculation.
+                This table lists the features and their values for this
+                revision. The features are not sorted in a special way. Some
+                features for the calculation consist of more than one of the
+                features of the article quality model, leading to more values in
+                this table.
               </React.Fragment>
             }
             placement="bottom-end"
             interactive
           >
-            <img src={TabFeat} alt="tab-prob" style={{ width: "400px" }} />
+            <div>
+              <div className="tableTitle">
+                Features of the article and their values
+              </div>
+              <TableContainer
+                component={Paper}
+                classes={{ root: "feature-table" }}
+                /* style={{ height: 200, width: "100%" }} */
+                variant="outlined"
+              >
+                <Table size="small" stickyHeader>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell classes={{ root: "feature-name header" }}>
+                        Feature
+                      </TableCell>
+                      <TableCell classes={{ root: "feature-value header" }}>
+                        Value
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {props.featureValues.map((row) => (
+                      <TableRow key={row[0]}>
+                        <TableCell classes={{ root: "feature-name" }}>
+                          {row[0]}
+                        </TableCell>
+                        <TableCell
+                          title={row[1]}
+                          classes={{ root: "feature-value" }}
+                        >
+                          {row[1]}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
           </Tooltip>
         </div>
       </div>
@@ -109,64 +238,142 @@ export default function Prediction() {
             <Tab classes={{ root: "tab-style" }} label="Fa" />
           </Tabs>
         </Paper>
-        <TabPanel classes={{ root: "tab-content" }} value={value} index={0}>
-          Stub
+        <TabPanel value={value} index={0}>
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
-            title="This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers next to the bar is the percentage of influence."
-            placement="right-end"
+            title={diagramTip}
+            placement="right"
           >
-            <img src={Graph} alt="tab-prob" style={{ width: "400px" }} />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[5]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[5]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Start
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
-            title="This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers next to the bar is the percentage of influence."
-            placement="right-end"
+            title={diagramTip}
+            placement="right"
           >
-            <img src={Graph} alt="tab-prob" style={{ width: "400px" }} />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[4]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[4]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={2}>
-          C
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
-            title="This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers next to the bar is the percentage of influence."
-            placement="right-end"
+            title={diagramTip}
+            placement="right"
           >
-            <img src={Graph} alt="tab-prob" style={{ width: "400px" }} />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[1]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[1]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={3}>
-          B
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
-            title="This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers next to the bar is the percentage of influence."
-            placement="right-end"
+            title={diagramTip}
+            placement="right"
           >
-            <img src={Graph} alt="tab-prob" style={{ width: "400px" }} />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[0]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[0]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={4}>
-          GA
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
-            title="This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers next to the bar is the percentage of influence."
-            placement="right-end"
+            title={diagramTip}
+            placement="right"
           >
-            <img src={Graph} alt="tab-prob" style={{ width: "400px" }} />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[3]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[3]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
         <TabPanel value={value} index={5}>
-          FA
           <Tooltip
+            enterDelay={400}
+            leaveDelay={200}
             classes={{ popper: "tip" }}
-            title="This diagram displays how the features affect the outcome of the prediction. If the feature bar goes to the right, that means the feature increases the probability for the grade in question. If it goes the other way, the feature decreases the probability for that grade. The bigger the bar and the more influence has the feature on the prediction. The numbers next to the bar is the percentage of influence."
-            placement="right-end"
+            title={diagramTip}
+            placement="right"
           >
-            <img src={Graph} alt="tab-prob" style={{ width: "400px" }} />
+            <div className="prediction-tab">
+              <a
+                href={"data:image/png;base64," + props.figures[2]}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={"data:image/png;base64," + props.figures[2]}
+                  alt="tab-prob"
+                  style={{ width: "585px" }}
+                />
+              </a>
+            </div>
           </Tooltip>
         </TabPanel>
       </div>

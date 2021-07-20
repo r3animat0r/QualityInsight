@@ -1,31 +1,11 @@
 # Schnittstelle: https://www.mediawiki.org/wiki/API:Main_page
-# https://ores.wikimedia.org/v3/#!/scoring/get_v3_scores_context_revid_model
 
-import os.path
-import mwapi
-import articlequality
-import numpy as np
-import json
 from datetime import datetime
-from lime.lime_tabular import LimeTabularExplainer
-
 import requests # https://www.mediawiki.org/wiki/API:Revisions#Example_1:_Get_revision_data_of_several_pages
 
 S = requests.Session()
 URL = "https://en.wikipedia.org/w/api.php"
 
-""" from revscoring import Model
-from revscoring.extractors import api
-from revscoring.utilities.util import read_observations # Get training set """
-
-""" model_path = os.path.expanduser("~/articlequality/models/enwiki.nettrom_wp10.gradient_boosting.model")
-sm = Model.load(open(model_path), error_on_env_check=False)
-extractor = api.Extractor(mwapi.Session("https://en.wikipedia.org", user_agent="get-articlequality")) """
-
-""" from revscoring.utilities.util import read_observations # get training data """
-
-""" observations = list(read_observations(open(os.path.expanduser("~/articlequality/datasets/enwiki.labeling_revisions.nettrom_30k.json"))))
- """
 # searchs for articls that fit the search-term 
 # and returns the titles and links (max. 10)
 def searchArticle(text):
@@ -61,8 +41,6 @@ def getArticleVersions(article):
         "formatversion": "2",
         "format": "json"
     }
-
-
     r = S.get(url=URL, params=params)
     data = r.json()
     revisions = data['query']['pages'][0]['revisions']

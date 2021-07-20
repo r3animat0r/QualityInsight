@@ -63,7 +63,7 @@
 }
 
 #visual {
-  flex: 50%;
+  flex: 65%;
 }
 
 .visual-card {
@@ -130,7 +130,11 @@
   box-shadow: black;
 }
 
-.help .MuiTooltip-tooltip .MuiTypography-body2 {
+.help-yellow .MuiTooltip-tooltip .MuiTypography-body2 {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.help-blue .MuiTooltip-tooltip .MuiTypography-body2 {
   color: rgba(0, 0, 0, 0.54);
 }
 
@@ -146,6 +150,13 @@
 
 .prediction-content {
   padding-top: 5px;
+}
+
+.tableTitle {
+  font-weight: bold;
+  font-style: italic;
+  /* text-align: left; */
+  font-size: 14px;
 }
 
 /* .full-tab-style {
@@ -169,8 +180,46 @@
   background-color: #bfbfa3 !important;
 }
 
+.prediction-feat {
+  text-align: center;
+  width: 73%;
+}
+
 .prediction-graphs {
   text-align: center;
+}
+
+.prediction-tab {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.feature-table {
+  height: 180px;
+  width: 100%;
+  border-color: #bfbfa3 !important;
+}
+
+.header {
+  background-color: #edf2ce !important;
+  font-weight: bold !important;
+  border-color: #bfbfa3 !important;
+}
+
+.feature-name {
+  max-width: 320px;
+  word-wrap: break-word;
+  background-color: #fffef5;
+  border-color: #bfbfa3 !important;
+}
+
+.feature-value {
+  max-width: 59px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fffef5;
+  border-color: #bfbfa3 !important;
 }
 
 .list-style {
@@ -194,4 +243,35 @@
 
 .feature-menu {
   background-color: white !important;
+}
+
+.loading-yellow {
+  color: #aaaa85 !important;
+  margin: 10px auto !important;
+  display: block !important;
+}
+
+.loading-green {
+  color: #85aa98 !important;
+  margin: 10px auto !important;
+  display: block !important;
+}
+
+.probabilities {
+  width: 150px;
+  font-size: 12px;
+}
+
+.probBar {
+  background-color: #edf2ce !important;
+  height: 15px !important;
+}
+
+.probBar .MuiLinearProgress-bar {
+  background-color: #aaaa85;
+}
+
+.preText {
+  white-space: pre-wrap;
+  font-family: inherit;
 }
