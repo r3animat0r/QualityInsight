@@ -8,7 +8,7 @@ import json
 from functions.wikiFunctions import *
 from functions.visualization import *
 
-app = Flask(__name__, static_url_path='', static_folder='qualityinsight-frontend/build')
+app = Flask(__name__, static_url_path='index.html', static_folder='qualityinsight-frontend/build')
 CORS(app) #comment this on deployment
 api = Api(app)
 
@@ -18,13 +18,13 @@ def home():
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
 
-    return render_template("index.html", results=flask.jsonify(searchRes))
+    return flask.jsonify(searchRes)
 
 @app.route("/found-revisions", methods = ['POST','GET'])
 def foundRevisions():
     article = request.args.get('article')
     searchRes = getArticleVersions(article)
-    return render_template("index.html", results=flask.jsonify(searchRes))
+    return flask.jsonify(searchRes)
 
 @app.route("/explanation", methods = ['POST', 'GET'])
 def explanation():
@@ -39,7 +39,7 @@ def explanation():
     for i in range(0, len(features)):
         featureList.append([altFeatureNames[features[i]], list(feature_values)[i]])
     #print(featureList)
-    return render_template("index.html", results={"prediction": prediction, "fig": fig, "featureValues": featureList})
+    return {"prediction": prediction, "fig": fig, "featureValues": featureList}
 
 api.add_resource(ApiHandler, '/')
 
