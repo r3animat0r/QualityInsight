@@ -14,7 +14,7 @@ api = Api(app)
 
 @app.route("/", methods = ['POST','GET'])
 def home():
-    
+
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
 
@@ -44,4 +44,4 @@ def explanation():
 api.add_resource(ApiHandler, '/')
 
 if __name__ == '__main__':
-    app.run(debug = False)
+    app.run(host="85.214.159.67", port=5000, debug = False)
