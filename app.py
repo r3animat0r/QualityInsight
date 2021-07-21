@@ -44,4 +44,4 @@ def explanation():
 api.add_resource(ApiHandler, '/')
 
 if __name__ == '__main__':
-    app.run(host="85.214.159.67", port=5000, debug = False)
+    app.run(host="85.214.159.67", port=5000, ssl_context='adhoc', debug = False)
