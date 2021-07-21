@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory, request
 import flask
 from flask_restful import Api, Resource, reqparse
-from flask_cors import CORS #comment this on deployment
+from flask_cors import CORS, cross_origin #comment this on deployment
 from api.ApiHandler import ApiHandler
 
 import json
