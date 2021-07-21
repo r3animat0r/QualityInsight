@@ -192,6 +192,7 @@
 .prediction-tab {
   height: 600px;
   overflow-y: auto;
+  margin: -25px;
 }
 
 .feature-table {
