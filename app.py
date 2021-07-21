@@ -12,8 +12,8 @@ app = Flask(__name__, static_url_path='', static_folder='qualityinsight-frontend
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-CORS(app) #comment this on deployment
-api = Api(app, resources={r"/": {"origins": "http://localhost:port"}})
+CORS(app, resources={r"/": {"origins": "http://localhost:port"}}) #comment this on deployment
+api = Api(app)
 
 @app.route("/", methods = ['POST','GET'])
 @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
