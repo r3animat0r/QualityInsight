@@ -8,7 +8,7 @@ import json
 from functions.wikiFunctions import *
 from functions.visualization import *
 
-app = Flask(__name__, static_url_path='index.html', static_folder='qualityinsight-frontend/build')
+app = Flask(__name__, static_url_path='', static_folder='qualityinsight-frontend/build')
 CORS(app) #comment this on deployment
 api = Api(app)
 
