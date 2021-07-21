@@ -14,7 +14,6 @@ api = Api(app)
 
 @app.route("/", methods = ['POST','GET'])
 def home():
-
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
 
