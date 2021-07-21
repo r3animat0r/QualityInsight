@@ -70,7 +70,7 @@ def getExplanation(prediction, feature_values):
         score,
         num_features=40,
         top_labels=6,
-        num_samples=2500
+        num_samples=500
     )
     print("LIME is done!")
 
