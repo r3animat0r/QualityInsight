@@ -20,7 +20,7 @@ let startSearch = (search, setResults) => {
   }
 
   axios
-    .get("https://85.214.159.67:5000/?search=" + search)
+    .get("http://85.214.159.67:5000/?search=" + search)
     .then((response) => {
       setResults((results) => response.data);
     })
