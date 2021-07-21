@@ -17,7 +17,7 @@ def home():
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
 
-    return flask.jsonify(searchRes)
+    return (flask.jsonify(searchRes)).headers.add('Access-Control-Allow-Origin', '*')
 
 @app.route("/found-revisions", methods = ['POST','GET'])
 def foundRevisions():
