@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory, request
 import flask
 from flask_restful import Api, Resource, reqparse
-from flask_cors import CORS, cross_origin #comment this on deployment
+from flask_cors import CORS #comment this on deployment
 from api.ApiHandler import ApiHandler
 
 import json
@@ -9,14 +9,12 @@ from functions.wikiFunctions import *
 from functions.visualization import *
 
 app = Flask(__name__, static_url_path='', static_folder='qualityinsight-frontend/build')
-app.config['CORS_HEADERS'] = 'Content-Type'
-
 CORS(app) #comment this on deployment
 api = Api(app)
 
 @app.route("/", methods = ['POST','GET'])
-@cross_origin()
 def home():
+    
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
 
