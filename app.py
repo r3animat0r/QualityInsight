@@ -9,14 +9,13 @@ from functions.wikiFunctions import *
 from functions.visualization import *
 
 app = Flask(__name__, static_url_path='', static_folder='qualityinsight-frontend/build')
-app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-CORS(app, resources={r"/": {"origins": "http://localhost:port"}}) #comment this on deployment
+CORS(app) #comment this on deployment
 api = Api(app)
 
 @app.route("/", methods = ['POST','GET'])
-@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+@cross_origin()
 def home():
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
