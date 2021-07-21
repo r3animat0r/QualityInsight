@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request
+from flask import Flask, send_from_directory, request, render_template
 import flask
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS #comment this on deployment
@@ -18,13 +18,13 @@ def home():
     searchTerm = request.args.get('search')
     searchRes = searchArticle(searchTerm)
 
-    return flask.jsonify(searchRes)
+    return render_template("index.html", results=flask.jsonify(searchRes))
 
 @app.route("/found-revisions", methods = ['POST','GET'])
 def foundRevisions():
     article = request.args.get('article')
     searchRes = getArticleVersions(article)
-    return flask.jsonify(searchRes)
+    return render_template("index.html", results=flask.jsonify(searchRes))
 
 @app.route("/explanation", methods = ['POST', 'GET'])
 def explanation():
@@ -39,7 +39,7 @@ def explanation():
     for i in range(0, len(features)):
         featureList.append([altFeatureNames[features[i]], list(feature_values)[i]])
     #print(featureList)
-    return {"prediction": prediction, "fig": fig, "featureValues": featureList}
+    return render_template("index.html", results={"prediction": prediction, "fig": fig, "featureValues": featureList})
 
 api.add_resource(ApiHandler, '/')
 
