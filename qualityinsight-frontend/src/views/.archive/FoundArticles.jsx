@@ -14,7 +14,7 @@ export default function FoundArticles() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/")
+      .get("http://85.214.159.67:5000/")
       .then((response) => {
         setResults(response.data);
       })
