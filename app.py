@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request
+from flask import Flask, send_from_directory, request, render_template
 import flask
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS #comment this on deployment
@@ -43,4 +43,4 @@ def explanation():
 api.add_resource(ApiHandler, '/')
 
 if __name__ == '__main__':
-    app.run(debug = False)
+    app.run(host="85.214.159.67", port=5000, ssl_context='adhoc', debug = False)

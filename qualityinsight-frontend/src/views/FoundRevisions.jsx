@@ -35,7 +35,7 @@ export default function FoundArticles() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/found-revisions?article=" + articleName)
+      .get("https://85.214.159.67:5000/found-revisions?article=" + articleName)
       .then((response) => {
         setResults(response.data);
       })
